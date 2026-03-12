@@ -1,0 +1,279 @@
+.presentation-player {
+  animation: fade-in 0.3s ease-out;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  inset: 0;
+  position: fixed;
+  z-index: 9999;
+}
+
+.player-controls {
+  align-items: center;
+  background: rgb(0 0 0 / 80%);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 10px 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity 0.3s;
+  z-index: 10000;
+}
+
+.player-controls:hover {
+  opacity: 1;
+}
+
+.controls-left,
+.controls-center,
+.controls-right {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.control-button {
+  align-items: center;
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  gap: 5px;
+  padding: 8px 16px;
+  transition: all 0.2s;
+}
+
+.control-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.control-button:hover:not(:disabled) {
+  background: rgb(255 255 255 / 20%);
+  transform: translateY(-1px);
+}
+
+.control-button.playing {
+  background: rgb(0 123 255 / 30%);
+  border-color: #007bff;
+}
+
+.presentation-title {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.slide-counter {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+.timer {
+  color: #ccc;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.slide-container {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 20px 20px;
+}
+
+.slide-content {
+  animation: slide-in 0.3s ease-out;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 50%);
+  height: 100%;
+  max-height: 700px;
+  max-width: 1200px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.player-text-element {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.player-image-element {
+  background-size: cover;
+  border: none;
+}
+
+.slide-thumbnails {
+  background: rgb(0 0 0 / 80%);
+  bottom: 0;
+  display: flex;
+  gap: 5px;
+  left: 0;
+  overflow-x: auto;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  transition: opacity 0.3s;
+  z-index: 10000;
+}
+
+.slide-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slide-thumbnails::-webkit-scrollbar-track {
+  background: rgb(255 255 255 / 10%);
+}
+
+.slide-thumbnails::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 30%);
+  border-radius: 3px;
+}
+
+.thumbnail {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s;
+  width: 120px;
+}
+
+.thumbnail:hover {
+  border-color: rgb(255 255 255 / 50%);
+  transform: translateY(-2px);
+}
+
+.thumbnail.active {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgb(0 123 255 / 50%);
+}
+
+.thumbnail-number {
+  background: rgb(0 0 0 / 70%);
+  border-radius: 3px;
+  color: white;
+  font-size: 10px;
+  left: 2px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 2px;
+  z-index: 1;
+}
+
+.thumbnail-preview {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.thumbnail-element {
+  pointer-events: none;
+}
+
+.player-hints {
+  background: rgb(0 0 0 / 70%);
+  border-radius: 8px;
+  bottom: 100px;
+  font-size: 12px;
+  opacity: 0.7;
+  padding: 10px 15px;
+  position: fixed;
+  right: 20px;
+  transition: opacity 0.3s;
+  z-index: 10000;
+}
+
+.player-hints:hover {
+  opacity: 1;
+}
+
+.hint-item {
+  color: #ccc;
+  margin: 5px 0;
+}
+
+@media (width <= 1024px) {
+  .slide-content {
+    max-height: 60%;
+    max-width: 90%;
+  }
+
+  .player-controls {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .controls-center {
+    justify-content: center;
+    margin-top: 10px;
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media (width <= 768px) {
+  .controls-left,
+  .controls-right {
+    flex: 1;
+  }
+
+  .control-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .presentation-title {
+    display: none;
+  }
+
+  .player-hints {
+    display: none;
+  }
+
+  .slide-thumbnails {
+    display: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

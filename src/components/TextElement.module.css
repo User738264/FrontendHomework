@@ -1,0 +1,62 @@
+.resize-handle {
+  background-color: #007bff;
+  border: 1px solid white;
+  border-radius: 1px;
+  cursor: pointer;
+  height: 8px;
+  position: absolute;
+  width: 8px;
+  z-index: 1001;
+}
+
+.resize-handle-nw {
+  cursor: nw-resize;
+  left: -4px;
+  top: -4px;
+}
+
+.resize-handle-n {
+  cursor: n-resize;
+  left: 50%;
+  top: -4px;
+  transform: translateX(-50%);
+}
+
+.resize-handle-ne {
+  cursor: ne-resize;
+  right: -4px;
+  top: -4px;
+}
+
+.resize-handle-e {
+  cursor: e-resize;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.resize-handle-se {
+  bottom: -4px;
+  cursor: se-resize;
+  right: -4px;
+}
+
+.resize-handle-s {
+  bottom: -4px;
+  cursor: s-resize;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.resize-handle-sw {
+  bottom: -4px;
+  cursor: sw-resize;
+  left: -4px;
+}
+
+.resize-handle-w {
+  cursor: w-resize;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
